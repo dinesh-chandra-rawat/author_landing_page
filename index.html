@@ -1,329 +1,320 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Donate — Glories of India</title>
-  <meta name="description" content="Support Glories of India: help us research, preserve and share India's heritage. Secure donations, receipts, and impact updates." />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Fonts (Noto Serif + Noto Sans for Devanagari/Bengali support) -->
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;600&family=Noto+Serif:wght@400;700&display=swap" rel="stylesheet">
+    <!-- lib -->
 
-  <style>
-    :root{
-      --brand: #b87333; /* warm saffron/gold accent */
-      --brand-dark: #8b5926;
-      --bg: #ffffff;
-      --text: #0b0b0b;
-      --muted: #545454;
-      --card: #fffaf5;
-      --radius: 14px;
-      --max-width: 1100px;
-    }
-    html,body{height:100%}
-    body{
-      margin:0;
-      font-family: "Noto Sans", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-      background:var(--bg);
-      color:var(--text);
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-      line-height:1.45;
-    }
-    a{color:var(--brand); text-decoration:none}
-    .container{max-width:var(--max-width); margin:0 auto; padding:24px;}
-    header{padding:28px 0; text-align:center}
-    header .brand{font-family:"Noto Serif"; font-size:20px; font-weight:700; color:var(--brand-dark)}
-    /* HERO */
-    .hero{
-      padding:36px 16px;
-      text-align:center;
-      border-radius:12px;
-      margin-bottom:28px;
-    }
-    .hero h1{font-family:"Noto Serif"; font-size:28px; margin:8px 0 10px}
-    .hero p{max-width:820px; margin:0 auto 18px; color:var(--muted)}
-    .cta-btn{
-      background:var(--brand-dark); color:white; border:none;
-      padding:12px 20px; border-radius:12px; cursor:pointer; font-size:16px;
-      box-shadow:0 6px 18px rgba(139,89,38,0.12);
-    }
-    .cta-btn:focus{outline:3px solid rgba(184,115,51,0.18); outline-offset:2px}
-    /* Cards */
-    .cards{display:grid; gap:16px; margin:22px 0 36px}
-    .card{
-      padding:18px; border-radius:12px; background:#fff; border:1px solid #f0e7df;
-      display:flex; gap:12px; align-items:flex-start;
-    }
-    .card svg{flex:0 0 44px}
-    .card h3{margin:0 0 6px; font-size:18px; color:var(--brand-dark)}
-    .card p{margin:0; color:var(--muted); font-size:14px}
-    /* Donation panel */
-    .donation{
-      padding:22px; border-radius:14px; background:linear-gradient(180deg, #fffaf7 0%, #fff 100%);
-      border:1px solid #efe1cf; box-shadow:0 8px 30px rgba(139,89,38,0.06);
-    }
-    .donation h2{margin:0 0 8px; font-size:20px; font-family:"Noto Serif"}
-    .donation p.lead{margin:0 0 12px; color:var(--muted)}
-    .amounts{display:flex; gap:10px; flex-wrap:wrap; margin:10px 0 12px}
-    .amount{
-      padding:10px 14px; border-radius:10px; border:1px solid #ecd6c2; background:white;
-      cursor:pointer; font-weight:600;
-    }
-    .amount.selected{background:var(--brand); color:white; border-color:var(--brand-dark)}
-    .freq{display:flex; gap:10px; margin-bottom:12px}
-    .freq label{display:inline-flex; align-items:center; gap:8px; padding:8px 10px; border-radius:10px; border:1px solid #eee; cursor:pointer}
-    .freq input[type=radio]{accent-color:var(--brand)}
-    .custom-wrap{display:flex; gap:10px; margin-bottom:14px; align-items:center}
-    .custom-wrap input[type=number]{
-      padding:10px; border-radius:8px; border:1px solid #ddd; width:140px;
-    }
-    .donate-submit{display:flex; gap:12px; align-items:center; flex-wrap:wrap}
-    .secure-note{font-size:13px; color:var(--muted)}
-    /* Footer */
-    footer{margin-top:28px; padding:18px 0; text-align:center; color:var(--muted); font-size:14px}
-    /* Grid responsive */
-    @media (min-width:720px){
-      .cards{grid-template-columns:repeat(3,1fr)}
-      .hero h1{font-size:36px}
-      .container{padding:32px}
-    }
-    @media (min-width:1100px){
-     /* .layout{display:grid; grid-template-columns:1fr 420px; gap:28px; align-items:start}*/
-    }
-    /* small accessibility */
-    .visually-hidden{position:absolute!important;height:1px;width:1px;overflow:hidden;clip:rect(1px,1px,1px,1px);white-space:nowrap}
-    /* thank you overlay */
-    .overlay{position:fixed; inset:0; display:none; align-items:center; justify-content:center; background:rgba(11,11,11,0.45); z-index:1200}
-    .overlay.active{display:flex}
-    .ty{background:white; padding:22px; border-radius:12px; max-width:520px; text-align:center}
-    .ty h3{margin-top:0; color:var(--brand-dark)}
-  </style>
+    <link rel="stylesheet" href="assets/lib/bootstrap-5-0-2.min.css">
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="assets/js/script.js"></script>
+    <script src="assets/lib/bootstrap.bundle.min.js"></script>
+
+    <!-- for fonts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <!-- aos css -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- custom css -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="icon" type="image/x-icon" href="assets/images/b-solid.svg">
+    <title>Dinesh Chandra Rawat</title>
 </head>
+
 <body>
-  <div class="container">
-    <header role="banner" aria-label="Glories of India">
-      <div class="brand">Glories of India</div>
-    </header>
-
-    <!-- HERO -->
-    <main>
-      <section class="hero" aria-labelledby="hero-heading">
-        <h1 id="hero-heading">Reclaiming India’s Lost Heritage — With Your Help</h1>
-        <p>
-          Glories of India researches, translates and preserves India's spiritual and cultural heritage.
-          Your support helps us digitize manuscripts, publish research, and run educational outreach in multiple languages.
-        </p>
-        <button class="cta-btn" id="jump-to-donate"> Donate Now — Be a Part of the Revival</button>
-      </section>
-
-      <div class="layout" style="gap:28px">
-        <!-- Left: Info cards -->
-        <section aria-labelledby="impact-heading">
-          <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:12px">
-            <h2 id="impact-heading" style="margin:0; font-size:22px; font-family:'Noto Serif'">Your Support Builds Knowledge That Lasts</h2>
-            <p style="margin:0; color:var(--muted)">Transparent, impactful, and accountable.</p>
-          </div>
-
-          <div class="cards" role="list">
-            <article class="card" role="listitem" aria-labelledby="card1">
-              <!-- icon: scroll -->
-              <svg width="44" height="44" viewBox="0 0 24 24" fill="none" aria-hidden focusable="false">
-                <rect x="3" y="4" width="14" height="16" rx="2" stroke="#b87333" stroke-width="1.6" fill="#fff4ea"/>
-                <path d="M7 8h6M7 12h6M7 16h4" stroke="#b87333" stroke-width="1.4" stroke-linecap="round"/>
-              </svg>
-              <div>
-                <h3 id="card1">Research & Documentation</h3>
-                <p>Discover and translate forgotten manuscripts, inscriptions and authentic sources.</p>
-              </div>
-            </article>
-
-            <article class="card" role="listitem" aria-labelledby="card2">
-              <!-- icon: book -->
-              <svg width="44" height="44" viewBox="0 0 24 24" fill="none" aria-hidden focusable="false">
-                <path d="M4 6h12v12H4z" stroke="#b87333" stroke-width="1.6" fill="#fff4ea"/>
-                <path d="M16 8v10" stroke="#b87333" stroke-width="1.4" stroke-linecap="round"/>
-                <path d="M7 9h6" stroke="#b87333" stroke-width="1.2" stroke-linecap="round"/>
-              </svg>
-              <div>
-                <h3 id="card2">Education & Awareness</h3>
-                <p>Publish verified content, create study materials, and host multilingual lectures.</p>
-              </div>
-            </article>
-
-            <article class="card" role="listitem" aria-labelledby="card3">
-              <!-- icon: landmark -->
-              <svg width="44" height="44" viewBox="0 0 24 24" fill="none" aria-hidden focusable="false">
-                <path d="M3 20h18" stroke="#b87333" stroke-width="1.6" stroke-linecap="round"/>
-                <path d="M12 3v10" stroke="#b87333" stroke-width="1.6" stroke-linecap="round"/>
-                <path d="M6 10h12" stroke="#b87333" stroke-width="1.4" stroke-linecap="round"/>
-              </svg>
-              <div>
-                <h3 id="card3">Preservation & Outreach</h3>
-                <p>Support workshops, digital archives, and exhibitions that inspire future generations.</p>
-              </div>
-            </article>
-          </div>
-
-          <p style="color:var(--muted); font-size:14px; margin-top:6px">
-            We provide periodic updates and an annual report to donors — transparency you can trust.
-          </p>
-        </section>
-
-        <!-- Right: Donation panel -->
-        <aside aria-labelledby="donate-heading">
-          <div class="donation" id="donation-panel">
-            <h2 id="donate-heading">Be a Torchbearer of India’s Heritage</h2>
-            <p class="lead">Support research, preservation and multilingual outreach. Your contribution — large or small — makes a difference.</p>
-
-            <form id="donation-form" novalidate>
-              <div>
-                <label class="visually-hidden" for="amount">Donation amount</label>
-                <div class="amounts" role="list" aria-label="Suggested donation amounts">
-                  <button type="button" class="amount" data-value="500">₹500</button>
-                  <button type="button" class="amount" data-value="1000">₹1,000</button>
-                  <button type="button" class="amount" data-value="2000">₹2,000</button>
-                  <button type="button" class="amount" id="custom-amount-btn">Custom</button>
+    <header class="portflio-navber box-shadow sticky-top">
+        <nav class="navbar navbar-expand-md">
+            <div class="container">
+                <a class="navbar-brand" href="">
+                  Dinesh Rawat
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapsibleNavbar">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#my-work">Work</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#about">About</a>
+                        </li>
+                    
+                        <li class="nav-item">
+                            <a class="nav-link" href="#skill-section">Skills</a>
+                        </li>
+                    </ul>
                 </div>
-              </div>
-
-              <div class="custom-wrap" id="custom-wrap" style="display:none">
-                <label for="custom-amount" class="visually-hidden">Custom amount in rupees</label>
-                <input id="custom-amount" type="number" min="1" step="1" placeholder="Enter amount (₹)" aria-label="Custom amount" />
-                <div style="font-size:13px; color:var(--muted)">You may enter any amount in rupees</div>
-              </div>
-
-              <fieldset class="freq" aria-label="Donation frequency">
-                <legend class="visually-hidden">Donation frequency</legend>
-                <label><input type="radio" name="frequency" value="one-time" checked /> One-time</label>
-                <label><input type="radio" name="frequency" value="monthly" /> Monthly</label>
-              </fieldset>
-
-              <div class="donate-submit">
-                <button type="submit" class="cta-btn" id="pay-btn">🔒 Contribute Securely</button>
-                <div style="min-width:1px; flex:1">
-                  <div class="secure-note">100% Secure Payment — SSL Encrypted • Instant receipt by email</div>
-                </div>
-              </div>
-
-              <!-- hidden fallback inputs -->
-              <input type="hidden" name="amount" id="amount-hidden" value="500" />
-              <input type="hidden" name="frequency-hidden" id="freq-hidden" value="one-time" />
-            </form>
-
-            <div style="margin-top:12px; font-size:13px; color:var(--muted)">
-              <strong>Tax info:</strong> Eligible for tax benefits under Section 80G (where applicable).
             </div>
-          </div>
-        </aside>
-      </div>
+        </nav>
 
-      <footer role="contentinfo">
-        <p style="margin:18px 0 6px; font-size:14px; color:var(--muted)">
-          Thank you for supporting the revival of India’s heritage. Your generosity helps us research, publish, and preserve our nation's wisdom.
-        </p>
-        <p style="margin:0; font-size:13px; color:#888">Glories of India • <a href="/terms-conditions">Terms & Conditions</a> • <a href="/privacy-policy">Privacy Policy</a></p>
-      </footer>
-    </main>
-  </div>
+    </header>
+    <section class="hero-banner sec-padding" id="">
+        <div class="container">
+            <div class="row align-items-center  gap-5">
+                
+                <div class="col-md-8 text-center m-auto" data-aos="fade-left">
+                     <h1 class="fw-bolder"> Dinesh Rawat is</h1>
+                    <h1 class="m-0"><span class="fw-bolder"></span> <a href=""
+                            class="wcmp-typewrite-header fw-bolder" data-period="2000"
+                            data-type='[ "A Researcher", "An Author", "An Environmentalist", "A Truth Seeker" , "A Best Book Sellor" ]'></a></h1>
+                    <h1 class="fw-bolder"> Based in India</h1>
+                    <p class="mb-4 py-4"> I’m a passionate web developer dedicated to creating user-friendly, innovative
+                        websites. I
+                        strive to combine functionality with aesthetics, ensuring an enjoyable experience for all users.
+                    </p>
+                    <div class="button-area d-flex gap-3 flex-wrap justify-content-center">
+                        <a href="" class="btn btn-solid">Give a Mail</a>
+                    </div>
+                    <div class="social-media-part pt-5">
+                        <a href="#"><i
+                                class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#"><i
+                                class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="https://wa.me/7278006663"><i class="fa-brands fa-whatsapp"></i></a>
 
-  <!-- Thank you overlay -->
-  <div class="overlay" id="overlay" role="dialog" aria-modal="true" aria-hidden="true">
-    <div class="ty" role="document">
-      <h3>🙏 Thank you for your support</h3>
-      <p style="color:var(--muted)">We’ve received your donation. A receipt will be sent to your email shortly.</p>
-      <p style="margin-top:12px"><button class="cta-btn" id="overlay-close">Close</button></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- projects section -->
+    <section class="my-work sec-padding" id="my-work">
+        <div class="container">
+            <div class="row ">
+                <div class="col-md-10 m-auto sub-header text-center">
+
+                    <h3 class="border-text">My Work</h3>
+                    <h2>My Work</h2>
+                </div>
+            </div>
+
+            <div class="mywork-card-wrap">
+
+                <div class="mywork-card" data-aos="zoom-in-up" data-aos-easing="linear" data-aos-duration="500">
+                    <div class="work-image">
+                        <a href="https://multivendorx.com/"><img src="assets/images/First-project.png"
+                                class="img-fluid"></a>
+                    </div>
+                    <h6 class="work-title">MultiVendorX</h6>
+                </div>
+                <div class="mywork-card" data-aos="zoom-in-up" data-aos-easing="linear" data-aos-duration="500">
+                    <div class="work-image">
+                        <a href="https://dualcube.com/"> <img src="assets/images/scnd-project.png"
+                                class="img-fluid"></a>
+                    </div>
+                    <h6 class="work-title">DualCube</h6>
+                </div>
+                <div class="mywork-card" data-aos="zoom-in-up" data-aos-easing="linear" data-aos-duration="500">
+                    <div class="work-image">
+                        <a href="https://bravocharliebeerclub.com/"> <img src="assets/images/thrd-project.png"
+                                class="img-fluid"></a>
+                    </div>
+                    <h6 class="work-title">Bravo Charlie</h6>
+                </div>
+                <div class="mywork-card" data-aos="zoom-in-up" data-aos-easing="linear" data-aos-duration="500">
+                    <div class="work-image">
+                        <a href="#"> <img src="assets/images/nursery.png" class="img-fluid"></a>
+                    </div>
+                    <h6 class="work-title">Nibas Garden</h6>
+                </div>
+
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- About section -->
+
+    <section class="about-section sec-padding" id="about">
+        <div class="container">
+            <div class="row ">
+                <div class="col-md-10 m-auto sub-header text-center">
+
+                    <h3 class="border-text">About Me</h3>
+                    <h2>About Me</h2>
+                </div>
+            </div>
+
+            <div class="row pt-5 mt-5">
+                <div class="col-md-6 mb-2">
+                    <h3 class="about-sub-title fw-bold mb-3">A Front-End Developer</h3>
+                    <p class="mb-4 pb-4">I am a Passionate frontend developer with a knack for crafting responsive and
+                        visually
+                        appealing web
+                        interfaces. Skilled in HTML, CSS, JavaScript, and modern frameworks. Committed to enhancing user
+                        experiences through innovative design and seamless functionality.</p>
+
+                    <ul class="list-none p-0">
+                        <li class="d-flex gap-5">
+                            <h5 class="m-0 fw-bold">Name :</h5>
+                            <p>Biplab Samanta</p>
+                        </li>
+                        <li class="d-flex gap-5">
+                            <h5 class="m-0 fw-bold">Email :</h5>
+                            <p>biplabs776@gmail.com</p>
+                        </li>
+                        <li class="d-flex gap-5">
+                            <h5 class="m-0 fw-bold">Mobile :</h5>
+                            <p>+91 7439156201</p>
+                        </li>
+                    </ul>
+                    <div class="button-area d-flex gap-4 flex-wrap">
+                        <a href="" class="btn btn-solid">Booked a call</a>
+                        <a href="" class="btn btn-border">Hire Me</a>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="about-image" data-aos="zoom-in-down" data-aos-easing="linear" data-aos-duration="500">
+                        <img src="assets/images/designe.png" class="img-fluid img-shadow rounded-3" alt="">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Resume timeline -->
+    <!-- <section class="resume-section sec-padding" id="resume-section">
+        <div class="container">
+            <div class="row ">
+                <div class="col-md-10 m-auto sub-header text-center">
+
+                    <h3 class="border-text">Resume</h3>
+                    <h2>Resume</h2>
+                </div>
+            </div>
+
+
+        </div>
+    </section> -->
+
+    <!-- skill timeline -->
+    <section class="skill-section sec-padding" id="skill-section">
+        <div class="container">
+            <div class="row ">
+                <div class="col-md-10 m-auto sub-header text-center">
+
+                    <h3 class="border-text">Skills</h3>
+                    <h2>Skills</h2>
+                </div>
+            </div>
+            <div class="skill-card-wrap">
+                <div class="skill-card-item" data-aos="fade-right" data-aos-easing="linear" data-aos-duration="500">
+                    <div class="card-icon"><i class="fa-brands fa-wordpress"></i></div>
+                    <h6 class="card-title">Wordpress Developer</h6>
+                </div>
+                <div class="skill-card-item" data-aos="zoom-in" data-aos-easing="linear" data-aos-duration="500">
+                    <div class="card-icon"><i class="fa-brands fa-square-web-awesome-stroke"></i></div>
+                    <h6 class="card-title">Web Developer</h6>
+                </div>
+                <div class="skill-card-item" data-aos="fade-left" data-aos-easing="linear" data-aos-duration="500">
+                    <div class="card-icon"><i class="fa-solid fa-mobile-screen-button"></i></div>
+                    <h6 class="card-title">App Developer</h6>
+                </div>
+                <div class="skill-card-item" data-aos="fade-right" data-aos-easing="linear" data-aos-duration="500">
+                    <div class="card-icon"><i class="fa-brands fa-figma"></i></div>
+                    <h6 class="card-title">Figma Developer</h6>
+                </div>
+                <div class="skill-card-item" data-aos="zoom-in" data-aos-easing="linear" data-aos-duration="500">
+                    <div class="card-icon"><i class="fa-solid fa-pen-fancy"></i></div>
+                    <h6 class="card-title">Web Designer</h6>
+                </div>
+                <div class="skill-card-item" data-aos="fade-left" data-aos-easing="linear" data-aos-duration="500">
+                    <div class="card-icon"><i class="fa-solid fa-compass-drafting"></i></div>
+                    <h6 class="card-title">Logo Designer</h6>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- technical knowledge -->
+    <!-- <section class="tech-section" id="tech">
+        <div class="container py-5">
+            <div class="row ">
+                <div class="col-md-10 m-auto sub-header text-center">
+
+                    <h3 class="border-text">Technical Knowledge</h3>
+                    <h2>Technical Knowledge</h2>
+                </div>
+            </div>
+
+
+        </div>
+    </section> -->
+
+    <!-- contact  -->
+    <!-- <section class="contact-section" id="contact">
+        <div class="container py-5">
+            <div class="row ">
+                <div class="col-md-10 m-auto sub-header text-center">
+
+                    <h3 class="border-text">Contact</h3>
+                    <h2>Contact</h2>
+                </div>
+            </div>
+
+
+        </div>
+    </section> -->
+    <div class="scroll-top" id="topscroll">
+        <i class="fa-brands fa-space-awesome"></i>
     </div>
-  </div>
+    <footer class="portfolio-footer">
+        <div class="container pt-4 pb-2">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="social-media-part">
+                        <a href="https://www.facebook.com/biplab.samanta.982?mibextid=ZbWKwL"><i
+                                class="fa-brands fa-facebook-f"></i></a>
+                        <a href="https://www.linkedin.com/in/biplab-samanta-3bb1242b9/"><i
+                                class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="https://wa.me/7439156201"><i class="fa-brands fa-whatsapp"></i></a>
 
-  <script>
-    // Basic interactive behavior (no payment integration) — adapt to your payment gateway
-    (function(){
-      const amounts = Array.from(document.querySelectorAll('.amount'));
-      const customBtn = document.getElementById('custom-amount-btn');
-      const customWrap = document.getElementById('custom-wrap');
-      const customInput = document.getElementById('custom-amount');
-      const amountHidden = document.getElementById('amount-hidden');
-      const freqHidden = document.getElementById('freq-hidden');
-      const payBtn = document.getElementById('pay-btn');
-      const form = document.getElementById('donation-form');
-      const overlay = document.getElementById('overlay');
-      const overlayClose = document.getElementById('overlay-close');
-      const jump = document.getElementById('jump-to-donate');
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <a class="footer-mail">Email: <span>biplabs776@gmail.com</span></a>
+                </div>
+            </div>
 
-      // select default
-      function selectAmount(btn){
-        amounts.forEach(b=>b.classList.remove('selected'));
-        btn.classList.add('selected');
-        customWrap.style.display = (btn === customBtn) ? 'flex' : 'none';
-        if(btn !== customBtn){
-          amountHidden.value = btn.dataset.value;
-        } else {
-          amountHidden.value = customInput.value || '';
-        }
-        customInput.focus();
-      }
-      // wire amount clicks
-      amounts.forEach(btn=>{
-        btn.addEventListener('click', (e)=>{
-          selectAmount(btn);
+            <hr>
+            <p class="copywright">© <span id="current-year"></span> Biplab Samanta. All Rights Reserved.</p>
+        </div>
+    </footer>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <script>
+        AOS.init();
+        $(function () {
+            $(window).scroll(function () {
+                if ($(this).scrollTop() > 600) {
+                    $('#topscroll').addClass('visible');
+                } else {
+                    $('#topscroll').removeClass('visible');
+                }
+            });
+            // variables 
+            var toTop = $('.scroll-top');
+            // logic
+            toTop.on('click', function () {
+                $('html, body').animate({
+                    scrollTop: $('html, body').offset().top,
+                });
+            });
         });
-      });
-      // init select first amount
-      if(amounts.length) selectAmount(amounts[0]);
 
-      // update hidden frequency when radio changes
-      document.querySelectorAll('input[name="frequency"]').forEach(r=>{
-        r.addEventListener('change', ()=>{
-          freqHidden.value = r.value;
-        });
-      });
-
-      // custom input updates hidden
-      customInput.addEventListener('input', ()=>{
-        amountHidden.value = customInput.value;
-      });
-
-      // jump to donation panel
-      jump.addEventListener('click', ()=>{
-        document.getElementById('donation-panel').scrollIntoView({behavior:'smooth', block:'center'});
-      });
-
-      // fake submit handler — replace with real payment flow (e.g., Stripe / Razorpay)
-      form.addEventListener('submit', function(ev){
-        ev.preventDefault();
-        const amt = Number(amountHidden.value || 0);
-        if(!amt || amt <= 0){
-          alert('Please enter a valid donation amount.');
-          if(customWrap.style.display !== 'none') customInput.focus();
-          return;
-        }
-        // update frequency hidden value
-        freqHidden.value = document.querySelector('input[name="frequency"]:checked').value;
-
-        // TODO: send to server / payment gateway here.
-        // For now, show thank-you overlay and reset
-        overlay.classList.add('active');
-        overlay.setAttribute('aria-hidden','false');
-
-        // simulate sending email/receipt... then reset if needed
-        setTimeout(()=>{}, 800);
-      });
-
-      overlayClose.addEventListener('click', ()=>{
-        overlay.classList.remove('active');
-        overlay.setAttribute('aria-hidden','true');
-      });
-
-      // close overlay on ESC
-      window.addEventListener('keydown', (e)=>{
-        if(e.key === 'Escape' && overlay.classList.contains('active')){
-          overlay.classList.remove('active');
-          overlay.setAttribute('aria-hidden','true');
-        }
-      });
-    })();
-  </script>
+    </script>
 </body>
-</html>
 
+</html>
